@@ -34,15 +34,13 @@
     </nav>
     <div class="flex space-x-4">
       <a
-        routerLink="/login"
+        (click)="navToPage('/login')"
         class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
-        target="_blank"
         >ورود</a
       >
       <a
-        href="signUp.html"
+        (click)="navToPage('/signup')"
         class="bg-white text-purple-600 px-4 py-2 rounded border border-purple-600 hover:bg-purple-100"
-        target="_blank"
         >ثبت‌نام</a
       >
     </div>
