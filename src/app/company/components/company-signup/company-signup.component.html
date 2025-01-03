@@ -1,0 +1,180 @@
+<div
+  class="d-flex align-items-center justify-content-center min-vh-100 bg-light"
+>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+          <div class="card-header bg-primary text-white text-center py-4">
+            <h2 class="fw-bold mb-0">Company Signup</h2>
+          </div>
+          <div class="card-body p-4">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+              <!-- Company Name -->
+              <div class="mb-3">
+                <label for="name" class="form-label fw-medium"
+                  >Company Name</label
+                >
+                <input
+                  id="name"
+                  type="text"
+                  formControlName="name"
+                  class="form-control"
+                  placeholder="Enter your company name"
+                />
+                <div
+                  *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched"
+                  class="text-danger"
+                >
+                  Company name is required.
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label fw-medium">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                  placeholder="Enter your email"
+                />
+                <div
+                  *ngIf="
+                    signupForm.get('email')?.invalid &&
+                    signupForm.get('email')?.touched
+                  "
+                  class="text-danger"
+                >
+                  Enter a valid email address.
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="mb-3">
+                <label for="password" class="form-label fw-medium"
+                  >Password</label
+                >
+                <input
+                  id="password"
+                  type="password"
+                  formControlName="password"
+                  class="form-control"
+                  placeholder="Enter a password"
+                />
+                <div
+                  *ngIf="
+                    signupForm.get('password')?.invalid &&
+                    signupForm.get('password')?.touched
+                  "
+                  class="text-danger"
+                >
+                  Password must be at least 6 characters.
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="mb-3">
+                <label for="description" class="form-label fw-medium"
+                  >Description</label
+                >
+                <textarea
+                  id="description"
+                  formControlName="description"
+                  class="form-control"
+                  rows="3"
+                  placeholder="Describe your company"
+                ></textarea>
+              </div>
+
+              <!-- Location -->
+              <div class="mb-3">
+                <label for="location" class="form-label fw-medium"
+                  >Location</label
+                >
+                <input
+                  id="location"
+                  type="text"
+                  formControlName="location"
+                  class="form-control"
+                  placeholder="Enter company location"
+                />
+              </div>
+
+              <!-- Website -->
+              <div class="mb-3">
+                <label for="website" class="form-label fw-medium"
+                  >Website</label
+                >
+                <input
+                  id="website"
+                  type="url"
+                  formControlName="website"
+                  class="form-control"
+                  placeholder="Enter website URL"
+                />
+              </div>
+
+              <!-- Industry -->
+              <div class="mb-3">
+                <label for="industry" class="form-label fw-medium"
+                  >Industry</label
+                >
+                <input
+                  id="industry"
+                  type="text"
+                  formControlName="industry"
+                  class="form-control"
+                  placeholder="Enter your industry"
+                />
+                <div
+                  *ngIf="
+                    signupForm.get('industry')?.invalid &&
+                    signupForm.get('industry')?.touched
+                  "
+                  class="text-danger"
+                >
+                  Industry is required.
+                </div>
+              </div>
+
+              <!-- Company Size -->
+              <div class="mb-4">
+                <label for="size" class="form-label fw-medium"
+                  >Company Size</label
+                >
+                <select id="size" formControlName="size" class="form-select">
+                  <option value="Small">Small</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Large">Large</option>
+                </select>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="d-grid">
+                <button
+                  type="submit"
+                  class="btn btn-primary fw-bold"
+                  [disabled]="signupForm.invalid"
+                >
+                  Signup
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer text-center py-3 bg-light">
+            <small class="text-muted"
+              >Already have an account?
+              <a
+                href="/login"
+                class="text-primary text-decoration-none fw-medium"
+                >Login here</a
+              ></small
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

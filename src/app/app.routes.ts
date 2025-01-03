@@ -4,8 +4,8 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { CompanyComponent } from './company/company.component';
-
-
+import { CompanySignupComponent } from './company/components/company-signup/company-signup.component';
+import { CompanyLoginComponent } from './company/components/company-login/company-login.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,5 +16,11 @@ export const routes: Routes = [
     component: AuthComponent,
     children: [{ path: 'login', component: LoginComponent }],
   },
-  {path:'company',component:CompanyComponent}
+  { path: 'company/signup', component: CompanySignupComponent },
+  { path: 'company/login', component: CompanyLoginComponent },
+  {
+    path: 'company',
+    component: CompanyComponent,
+    // children: [{ path: 'signup', component: CompanySignupComponent }],
+  },
 ];
