@@ -15,4 +15,5 @@ export class HomeComponent {
   navToPage(url:string){
     this.router.navigate([url]);
   }
+
 }

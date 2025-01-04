@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
-
+import {  jwtDecode} from "jwt-decode";
 const TOKEN_NAME = 'jobjob'
 
 @Injectable({
@@ -39,5 +39,21 @@ export class AuthJWTService {
 
   getToken() {
     return this.cookieService.get(TOKEN_NAME);
+  }
+
+  getTokenInfo() {
+    // let api = `${this.endpoint}/user-profile/${id}`;
+    // return this.http.get(api, { headers: this.headers }).pipe(
+    //   map(res => {
+    //     return res || {};
+    //   }),
+    //   catchError(this.handleError),
+    // );
+    const cookieValue = this.cookieService.get('jobjob');
+    const info: any = jwtDecode(cookieValue);
+    console.log('info token is : ',info);
+    
+    // console.log('user info', info);
+    return info;
   }
 }

@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { AuthJWTService } from '../../../service/auth-jwt.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-login',
@@ -18,7 +19,7 @@ import { CommonModule } from '@angular/common';
 export class CompanyLoginComponent {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private auth: AuthJWTService) {}
+  constructor(private router:Router,private fb: FormBuilder, private auth: AuthJWTService) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -35,6 +36,7 @@ export class CompanyLoginComponent {
         next: (res) => {
           console.log('login : ', res);
           this.auth.setToken(res.token);
+          this.router.navigate(['/company/jobs'])
         },
       });
     }
